@@ -1,0 +1,18 @@
+const express = require("express");
+const app = express();
+
+app.listen(3000, function(){
+    console.log("Server started on port 3000");
+});
+
+app.get("/", function(req, res){
+    res.send("<h1>Aditya's First Server</h1>")
+});
+
+app.get("/contact", function(req, res){
+    res.send("teamaditya.co")
+});
+
+app.get("/about", function(req, res){
+    res.send("Aditya is 3rd Year student at SRM University.")
+});
