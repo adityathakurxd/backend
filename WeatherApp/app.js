@@ -18,15 +18,14 @@ app.post("/", function(req, res){
     https.get(url, function(response){
         response.on("data", function(data){
             const weatherData = JSON.parse(data)
-            console.log(weatherData)
-            // const temperature = weatherData.main.temp;
-            // const weatherDesc = weatherData.weather[0].description
-            // const icon = weatherData.weather[0].icon
-            // const imageURL = "http://openweathermap.org/img/wn/"+icon+"@2x.png"
-            // req.write("<h1>The Weather at "+cityName+" is:");
-            // res.write("<p>"+temperature+"<p>");
-            // res.write("<p>"+weatherDesc+"<p>");
-            // res.write("<img src="+imageURL+">");
+            const temperature = weatherData.main.temp;
+            const weatherDesc = weatherData.weather[0].description
+            const icon = weatherData.weather[0].icon
+            const imageURL = "http://openweathermap.org/img/wn/"+icon+"@2x.png"
+            res.write("<h1>The Weather at "+city+" is:");
+            res.write("<p>"+temperature+"<p>");
+            res.write("<p>"+weatherDesc+"<p>");
+            res.write("<img src="+imageURL+">");
             res.send();
         })
     })
